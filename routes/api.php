@@ -16,15 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/events', [EventController::class, 'events']);
+Route::get('/events', [EventController::class, 'events']);
 
 Route::middleware('client.auth')->group(function () {
-    Route::post('/user/{email}/events', [UserEventController::class, 'getUserEvents']);
-    Route::post('/user/{email}/registeredEvents', [UserEventController::class, 'registeredEventsFromUser']);
-    Route::post('/user/{email}/paidEvents', [UserEventController::class, 'paidEventsFromUser']);
-    Route::post('/event/{id}/users', [UserEventController::class, 'getAssistants']);
-    Route::post('/event/{id}/paidUsers', [UserEventController::class, 'getPaidAssistants']);
-    Route::post('/event/{id}/count', [UserEventController::class, 'getTotalAssistants']);
+    Route::get('/user/{email}/events', [UserEventController::class, 'getUserEvents']);
+    Route::get('/user/{email}/registeredEvents', [UserEventController::class, 'registeredEventsFromUser']);
+    Route::get('/user/{email}/paidEvents', [UserEventController::class, 'paidEventsFromUser']);
+    Route::get('/event/{id}/users', [UserEventController::class, 'getAssistants']);
+    Route::get('/event/{id}/paidUsers', [UserEventController::class, 'getPaidAssistants']);
+    Route::get('/event/{id}/count', [UserEventController::class, 'getTotalAssistants']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
