@@ -18,7 +18,7 @@ class UserEventController extends Controller
         }
         $events = $user->events()->select('events.id', 'events.name', 'events.date', 'events.place')->get();
 
-        return response()->json($events, 200);
+        return response()->json($events);
     }
 
     public function getAssistants($id){
@@ -29,7 +29,7 @@ class UserEventController extends Controller
         }
         $users = $event->assistants()->select('users.name', 'users.email')->get();
 
-        return response()->json($users, 200);
+        return response()->json($users);
     }
 
     public function getTotalAssistants($id){
@@ -40,7 +40,7 @@ class UserEventController extends Controller
         }
         $count = $event->assistants()->count();
 
-        return response()->json($count, 200);
+        return response()->json($count);
     }
 
     public function getPaidAssistants($id){
@@ -51,7 +51,7 @@ class UserEventController extends Controller
         }
         $data = $event->assistants()->select('users.name', 'users.email', 'user_event_registration.registered_date', 'user_event_registration.paid_date')->where('user_event_registration.paid_date', '!=', null)->get();
 
-        return response()->json($data, 200);
+        return response()->json($data);
     }
 
     public function registeredEventsFromUser($email){
@@ -62,7 +62,7 @@ class UserEventController extends Controller
         }
         $data = $user->registeredEvents()->select('events.id', 'events.name', 'events.date', 'events.place', 'user_event_registration.registered_date', 'user_event_registration.paid_date')->get();
 
-        return response()->json($data, 200);
+        return response()->json($data);
     }
 
     public function paidEventsFromUser($email){
@@ -74,6 +74,6 @@ class UserEventController extends Controller
         $data = $user->registeredEvents()->select('events.id', 'events.name', 'events.date', 'events.place', 'user_event_registration.registered_date', 'user_event_registration.paid_date')
                                         ->where('user_event_registration.paid_date', '!=', null)->get();
 
-        return response()->json($data, 200);
+        return response()->json($data);
     }
 }

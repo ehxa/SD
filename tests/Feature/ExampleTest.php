@@ -116,4 +116,17 @@ class ExampleTest extends TestCase
             ],
         ]);
     }
+    public function test_events(): void
+    {
+        $response = $this->post("/api/events");
+
+        $response->assertStatus(200);
+        $response->assertJsonStructure([
+            '*' => [
+                'name',
+                'date',
+                'place',
+            ],
+        ]);
+    }
 }
