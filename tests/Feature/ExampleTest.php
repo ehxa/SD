@@ -55,4 +55,56 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
         self::assertEquals('3', $response->json());
     }
+
+    public function test_registered_events(): void
+    {
+        $email = 'sara@mail.com';
+        $response = $this->post("/api/user/$email/registeredEvents");
+
+        $response->assertStatus(200);
+        $response->assertJsonStructure([
+            '*' => [
+                'id',
+                'name',
+                'date',
+                'place',
+                'registered_date',
+                'paid_date',
+            ],
+        ]);
+    }
+
+    public function test_paid_events(): void
+    {
+        $email = 'sara@mail.com';
+        $response = $this->post("/api/user/$email/paidEvents");
+
+        $response->assertStatus(200);
+        $response->assertJsonStructure([
+            '*' => [
+                'id',
+                'name',
+                'date',
+                'place',
+                'registered_date',
+                'paid_date',
+            ],
+        ]);
+    }
+
+    public function test_paid_users(): void
+    {
+        $event = 1;
+        $response = $this->post("/api/event/$event/paidUsers");
+
+        $response->assertStatus(200);
+        $response->assertJsonStructure([
+            '*' => [
+                'name',
+                'email',
+                'registered_date',
+                'paid_date',
+            ],
+        ]);
+    }
 }

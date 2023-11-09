@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/user/{email}/events', [UserEventController::class, 'getUserEvents']);
+Route::post('/user/{email}/registeredEvents', [UserEventController::class, 'registeredEventsFromUser']);
+Route::post('/user/{email}/paidEvents', [UserEventController::class, 'paidEventsFromUser']);
 Route::post('/event/{id}/users', [UserEventController::class, 'getAssistants']);
+Route::post('/event/{id}/paidUsers', [UserEventController::class, 'getPaidAssistants']);
 Route::post('/event/{id}/count', [UserEventController::class, 'getTotalAssistants']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

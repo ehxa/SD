@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Events::class, 'user_event_registration', 'user_id', 'event_id');
     }
+
+    public function registeredEvents()
+    {
+        return $this->belongsToMany(Events::class, 'user_event_registration', 'user_id', 'event_id')->withPivot(['registered_date', 'paid_date']);
+    }
 }
