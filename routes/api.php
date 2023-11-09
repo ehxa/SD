@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserEventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+Route::post('/user/{email}/events', [UserEventController::class, 'getUserEvents']);
+Route::post('/event/{id}/users', [UserEventController::class, 'getAssistants']);
+Route::post('/event/{id}/count', [UserEventController::class, 'getTotalAssistants']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

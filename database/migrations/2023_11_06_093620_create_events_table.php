@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('name')->nullable(false);
             $table->dateTime('date')->nullable(false);
-            $table->string('local')->nullable(false);
+            $table->string('place')->nullable(false);
             $table->timestamps();
         });
     }

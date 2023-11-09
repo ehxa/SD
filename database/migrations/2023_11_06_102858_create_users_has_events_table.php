@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users_has_events', function (Blueprint $table) {
+        Schema::create('user_event_registration', function (Blueprint $table) {
+            $table->id()->autoIncrement();
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('event_id');
             $table->foreign('event_id')->references('id')->on('events');
             $table->dateTime('registered_date')->nullable(false);
+            $table->dateTime('paid_date')->nullable(false);
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users_has_events');
+        Schema::dropIfExists('user_event_registration');
     }
 };
