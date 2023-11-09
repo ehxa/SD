@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function events()
     {
-        $events = Events::select('name', 'date', 'place')->get();
+        $events = Events::select('id', 'name', 'date', 'place')->get();
 
         return response()->json($events);
     }
