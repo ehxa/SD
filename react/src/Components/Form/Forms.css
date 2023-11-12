@@ -1,0 +1,17 @@
+.form_container{
+    max-width: 80%;
+    margin-left: 20%;
+    margin-top: 20%;
+}
+
+.search_button{
+    background-color: rgb(74, 6, 137) !important;
+    border-color: rgb(255, 255, 255) !important;
+}
+
+.title_search{
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:  rgb(74, 6, 137) !important;
+    
+}

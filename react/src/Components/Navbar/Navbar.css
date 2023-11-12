@@ -1,0 +1,12 @@
+
+.user{
+    width: 100%;
+    background-color: rgb(74, 6, 137);
+    padding: 0.5%;
+}
+
+.custom-button {
+    background-color: #f1d4f8 !important;
+    color: rgb(74, 6, 137) !important;
+}
+
