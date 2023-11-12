@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserEventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/events', [EventController::class, 'events']);
+Route::get('/filter', [EventController::class, 'filter']);
+Route::post('/register', [UserController::class, 'register']);
 
 Route::middleware('client.auth')->group(function () {
     Route::get('/user/{email}/events', [UserEventController::class, 'getUserEvents']);
@@ -25,6 +28,7 @@ Route::middleware('client.auth')->group(function () {
     Route::get('/event/{id}/users', [UserEventController::class, 'getAssistants']);
     Route::get('/event/{id}/paidUsers', [UserEventController::class, 'getPaidAssistants']);
     Route::get('/event/{id}/count', [UserEventController::class, 'getTotalAssistants']);
+
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -130,4 +130,20 @@ class ExampleTest extends TestCase
             ],
         ]);
     }
+
+    public function test_register(): void
+    {
+        $response = $this->post("/api/register", ['email' => 'test@mail.com', 'event_id' => '4']);
+
+        $response->assertStatus(200);
+    }
+
+    public function test_filter(): void
+    {
+        //$response = $this->get("/api/filter", ['name' => 'Harry', 'place' => 'Lisbon']);
+        $response = $this->get("/api/filter?name=Harry&date=&place=Lisbon");
+        var_dump($response->json());
+
+        $response->assertStatus(200);
+    }
 }
