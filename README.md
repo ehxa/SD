@@ -19,11 +19,12 @@ Para correr a aplicação executar os seguintes comandos:<br>
 3. Dar click em start no apache e MySQL dentro XAMPP Control Panel
 4. Dar click no admin do MySQL e na interface web criar uma base de dados com
     4.1. name: sd
-    4.2. collection: utf8_general_ci 
-5. No ficheiro .env que esta no Laravel colocar as credencias, normalmente é apenas preciso mudar o DB_DATABASE: sd 
-6. php artisan migrate 
-7. php artisan db:seed
-8. php artisan serve (para executar o backend)
+    4.2. collection: utf8_general_ci
+5. Criar o ficheiro .env caso ainda nao esteja criado (Copiar o conteudo do ficheiro .env.example)
+6. No ficheiro .env que esta no Laravel colocar as credencias (normalmente é apenas preciso mudar o DB_DATABASE: sd)
+7. php artisan migrate 
+8. php artisan db:seed
+9. php artisan serve (para executar o backend)
 
 Na pasta "react": <br>
 
