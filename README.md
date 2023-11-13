@@ -26,6 +26,7 @@ Para correr a aplicação executar os seguintes comandos:<br>
 8. php artisan serve (para executar o backend)
 
 Na pasta "react": <br>
+
 9. aceder à pasta react fazendo cd react
 10. npm install
 11. npm run dev
