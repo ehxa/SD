@@ -14,7 +14,7 @@ class ExampleTest extends TestCase
         parent::setUp();
 
         // Define aquí el token de acceso válido
-        $this->accessToken = 'XRqud9aNmyRhUejyNt0yPS7EsXFASOWGj6KjdkSR';
+        $this->accessToken = '';
     }
     /**
      * A basic test example.
