@@ -24,7 +24,7 @@ const SiteNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto nav">
               <Nav.Link className='nav-link' href="/">Home</Nav.Link>
-              <Nav.Link className='nav-link' href="/myevents">My events</Nav.Link>
+              <Nav.Link className='nav-link' href="/searchevents">My events</Nav.Link>
               <Nav.Link className='nav-link' href="/allevents">All events</Nav.Link>
           </Nav>
           <Nav className='login-button'>

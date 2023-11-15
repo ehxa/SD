@@ -11,6 +11,7 @@ const MyEventsPage = () => {
     const userData = location.state && location.state.event;
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    console.log(userData.email);
 
     const getData = async () => {
         try {

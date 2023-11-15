@@ -10,7 +10,7 @@ import './User.css';
 const NumberUser = () => {
   const navigate = useNavigate();
   const [ userData, setUserData] = useState({
-    email: ''
+    email: '',
   });
 
   const handleInputChange = (e) => {
