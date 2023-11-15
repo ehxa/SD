@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import localImage from '../Assets/location.png';
 import dataImage from '../Assets/data.png';
 import { useEffect, useState } from 'react';
+import Globals from '../../../globals';
 
 const Events = ({state}) => {
 
@@ -20,7 +21,7 @@ const Events = ({state}) => {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ',
+                        'Authorization': 'Bearer ' + Globals.token,
                     },
                 });
                 const resultCount = await responseCount.json();

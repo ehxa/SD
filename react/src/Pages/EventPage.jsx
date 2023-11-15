@@ -4,8 +4,12 @@ import EventDetail from '../Components/Events/EventDetail';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "./Home.css";
+import Globals from '../../globals';
 
 const EventPage = () => {
+
+    console.log(Globals.token);
+
     const [regUsers, setRegUsers] = useState(null);
     const [events, setEvents] = useState(null);
     const [count, setCount] = useState(null);
@@ -20,7 +24,7 @@ const EventPage = () => {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ',
+                        'Authorization': 'Bearer ' + Globals.token,
                     }
                 });
                 const resultUsers = await responseUsers.json();
@@ -40,7 +44,7 @@ const EventPage = () => {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ',
+                        'Authorization': 'Bearer ' + Globals.token,
                     },
                 });
                 const resultCount = await responseCount.json();
@@ -50,7 +54,7 @@ const EventPage = () => {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ',
+                        'Authorization': 'Bearer ' + Globals.token,
                     },
                 });
                 const resultPaid = await responsePaid.json();

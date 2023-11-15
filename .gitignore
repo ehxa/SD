@@ -19,3 +19,5 @@ yarn-error.log
 /.vscode
 react/node_modules
 react/package-lock.json
+composer.lock
+package-lock.json

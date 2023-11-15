@@ -4,6 +4,7 @@ import {useLocation} from "react-router-dom";
 import Navbar from '../Components/Navbar/Navbar';
 import User from '../Components/User/User';
 import Spinner from 'react-bootstrap/Spinner';
+import Globals from '../../globals';
 
 const MyEventsPage = () => {
     const location = useLocation();
@@ -17,6 +18,7 @@ const MyEventsPage = () => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + Globals.token
                 },
             });
 
