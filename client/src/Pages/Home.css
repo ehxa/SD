@@ -25,3 +25,8 @@
 .main-row{
   max-width: 100%;
 }
+
+.titleCol{
+  margin-top: 2em !important;
+  padding: 0.5em;
+}
