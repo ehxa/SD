@@ -1,8 +1,18 @@
-.container{
-    width: 40%;
+.eventsResult{
+    width: 50%;
+    margin-left: 30%;
+    margin-top: 10%;
+
 }
 
 .search_button{
     background-color: rgb(74, 6, 137) !important;
     border-color: rgb(255, 255, 255) !important;
+}
+
+.searchEvents{
+    margin-top: 10%;
+    width: 40%;
+    margin-left: 30%;
+ 
 }

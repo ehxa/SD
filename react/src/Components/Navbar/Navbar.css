@@ -3,10 +3,32 @@
     width: 100%;
     background-color: rgb(74, 6, 137);
     padding: 0.5%;
+    margin-top: 0;
 }
 
 .custom-button {
     background-color: #f1d4f8 !important;
     color: rgb(74, 6, 137) !important;
+    justify-content: end; 
+    border-radius: 10px;
 }
 
+.nav-link
+{
+    color: white !important;
+    padding: 0.3em !important;
+    padding-left: 0.6em !important;
+    padding-right: 0.6em !important;
+}
+
+.home-logo{
+    margin-left: 2em;
+}
+
+.nav-container{
+    margin-top: 0 !important;
+}
+
+.login-button{
+    margin-right: 2em;
+}

@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "./Home.css";
 import {useEffect, useState} from "react";
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function Home (){
 
@@ -26,6 +27,7 @@ export default function Home (){
 
             const data = await response.json();
             setData(data);
+
         } catch (error) {
             console.error('Error:', error);
         } finally {
@@ -41,10 +43,14 @@ export default function Home (){
         <>
             <div className='main_container'>
                 <Navbar/>
-                <Row>
+                <Row className='main-row'>
                     <Col xs={{ order: 'first' }}><Forms /></Col>
                     {loading ? (
-                        <p>Loading...</p>
+                        <div className="loading-container">
+                            <Spinner animation="border" role="status">
+                                <span className="visually-hidden" >Loading...</span>
+                            </Spinner>
+                        </div>
                     ) : (
                         <Col xs={{ order: 'last' }}><Events state={{event: data}} /></Col>
                     )}

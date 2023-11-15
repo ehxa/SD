@@ -1,21 +1,19 @@
 import React, {useEffect, useState} from 'react'
-import Events from '../Components/Events/Events';
-import Navbar from '../Components/Navbar/Navbar';
 import "./Home.css";
-import Spinner from 'react-bootstrap/Spinner';
 import {useLocation} from "react-router-dom";
+import Navbar from '../Components/Navbar/Navbar';
+import User from '../Components/User/User';
+import Spinner from 'react-bootstrap/Spinner';
 
-const SearchPage = () => {
-
+const MyEventsPage = () => {
     const location = useLocation();
-    const formData = location.state && location.state.event;
-
+    const userData = location.state && location.state.event;
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const getData = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/filter?name=' + formData.name + '&date=' + formData.date + '&place=' + formData.place, {
+            const response = await fetch('http://127.0.0.1:8000/api/user/' + userData.email + '/registeredEvents', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,23 +38,21 @@ const SearchPage = () => {
         getData();
     }, []);
 
-    return (
-        <div className='main_container'>
-            <Navbar />
-            {loading ? (
-                <div className="loading-container">
+  return (
+    <div className='main_container'>
+      <Navbar/>
+      {loading ? (
+            <div className="loading-container">
                     <Spinner animation="border" role="status">
                         <span className="visually-hidden" >Loading...</span>
                     </Spinner>    
                 </div>
             ) : (
-                <div className="test">
-                    <Events state={{event: data}} />
-                </div>
+                <User state={{event: data}}/>
                 
-            )}
-        </div>
-      )
+        )}
+    </div>
+  )
 }
 
-export default SearchPage
+export default MyEventsPage

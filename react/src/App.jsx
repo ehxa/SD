@@ -4,6 +4,9 @@ import Home from './Pages/Home.jsx';
 import SearchPage  from './Pages/SearchPage.jsx';
 import RegisterPage from './Pages/RegisterPage';
 import LoginPage from './Pages/LoginPage.jsx';
+import EventPage from './Pages/EventPage.jsx';
+import MyEventsPage from './Pages/MyEventsPage.jsx';
+import SearchEventsPage from './Pages/SearchEventsPage.jsx';
 
 function App() {
     return (
@@ -16,6 +19,9 @@ function App() {
                         <Route path='/search' element={<SearchPage/>} />
                         <Route path='/register' element={<RegisterPage/>} />
                         <Route path='/login' element={<LoginPage/>} />
+                        <Route path='/event' element={<EventPage/>} />
+                        <Route path='/searchEvents' element={<SearchEventsPage/>} />
+                        <Route path='/myEvents' element={<MyEventsPage/>} />
                     </Routes>
                 </BrowserRouter>
             </div>

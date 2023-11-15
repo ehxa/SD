@@ -1,6 +1,11 @@
 .container{
     max-width: 70%;
-    margin-top: 20%;
+    margin-top: 10%;
+}
+
+.eventsRes{
+    max-width: 90%;
+    margin-top: 10%;
 }
 
 .images{
@@ -20,6 +25,29 @@
     margin-top: 1%;
 }
 
+.card_users{
+    margin-left: 0%;
+    margin-right: 20%;
+    margin-top: 1%;
+    font-size: large;
+    height: 220px !important;
+}
+
+.user-avatar{
+    margin: 0;
+    width: 150px;
+    height: 150px;
+    margin-top: 35px;
+}
+
+.avatar-col{
+    margin: 0;
+}
+
+.user-col{
+    text-align: left;
+    margin-top: 25px !important;
+}
 .search_button{
     background-color: rgb(74, 6, 137) !important;
     border-color: rgb(255, 255, 255) !important;
