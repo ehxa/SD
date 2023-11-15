@@ -19,15 +19,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/events', [EventController::class, 'events']);
 Route::get('/filter', [EventController::class, 'filter']);
-Route::post('/register', [UserController::class, 'register']);
+
 
 Route::middleware('client.auth')->group(function () {
     Route::get('/user/{email}/events', [UserEventController::class, 'getUserEvents']);
-    Route::get('/user/{email}/registeredEvents', [UserEventController::class, 'registeredEventsFromUser']);
+    
     Route::get('/user/{email}/paidEvents', [UserEventController::class, 'paidEventsFromUser']);
     Route::get('/event/{id}/users', [UserEventController::class, 'getAssistants']);
     Route::get('/event/{id}/paidUsers', [UserEventController::class, 'getPaidAssistants']);
     Route::get('/event/{id}/count', [UserEventController::class, 'getTotalAssistants']);
+    Route::post('/register', [UserController::class, 'register']);
+    Route::get('/user/{email}/registeredEvents', [UserEventController::class, 'registeredEventsFromUser']);
 
 });
 
