@@ -1,6 +1,20 @@
 version: '3.7'
 
 services:
+  laravel:
+    networks:
+      - app
+    image: php:8.2-apache
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    stdin_open: true
+    tty: true
+    ports:
+      - "4000:3000"
+
   react:
     networks:
       - app
@@ -12,7 +26,9 @@ services:
     tty: true
     ports:
       - 3000:5173
-    
+    depends_on:
+      - laravel
+
   database:
     networks:
       - app
@@ -27,4 +43,5 @@ networks:
   app:
     driver: bridge
 
+ 
  
