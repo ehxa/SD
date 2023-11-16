@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react
+  template:
+    metadata:
+      labels:
+        app: react
+    spec:
+      containers:
+      - name: react
+        image: node:14
+        workingDir: /app
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            yarn install && yarn dev
+        ports:
+        - containerPort: 5173
+
