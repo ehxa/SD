@@ -21,3 +21,7 @@
 /client/package-lock.json
 /server/composer.lock
 /server/package-lock.json
+package-lock.json
+client/globals.jsx
+client/globals.jsx
+client/globals.jsx
