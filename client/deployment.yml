@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: react
-        image: node:14
+        image: node:21-alpine
         workingDir: /app
         command: ["/bin/sh", "-c"]
         args:
           - |
-            yarn install && yarn dev
+            npm install && npm run dev
         ports:
         - containerPort: 5173
 
