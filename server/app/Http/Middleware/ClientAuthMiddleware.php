@@ -17,9 +17,9 @@ class ClientAuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->header('Origin') === 'http://localhost:3000') {
+        /*if ($request->header('Origin') === 'http://localhost:3000') {
             return $next($request);
-        }
+        }*/
 
         $accessToken = $request->bearerToken();
 
