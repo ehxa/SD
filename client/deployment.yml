@@ -1,19 +1,23 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-deployment
+  name: reactvite
+  labels:
+    app: reactvite
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: react
+      app: reactvite
   template:
     metadata:
       labels:
-        app: react
+        app: reactvite
     spec:
       containers:
-      - name: react
-        image: ehxa/react:v1.0
-        ports:
-        - containerPort: 5173
+        - name: reactvite
+          image: ehxa/reactvite
+          ports:
+          - containerPort: 5173
+
