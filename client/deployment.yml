@@ -14,12 +14,6 @@ spec:
     spec:
       containers:
       - name: react
-        image: node:21-alpine
-        workingDir: /app
-        command: ["/bin/sh", "-c"]
-        args:
-          - |
-            npm install && npm run dev
+        image: ehxa/react:v1.0
         ports:
         - containerPort: 5173
-
