@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: reactvite
+  namespace: sge
   labels:
     app: reactvite
 spec:
