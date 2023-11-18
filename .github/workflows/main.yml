@@ -51,14 +51,20 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: search Packege.json
-        run: cd ./client/packege.json
-
-      - name: npm install, build and test
+      - name: Build Backend
         run: |
+          cd ./server
           npm install
           npm run build --if-present
           npm test
+
+      - name: Build Frontend
+        run: |
+          cd ./client
+          npm install
+          npm run build --if-present
+          npm test
+
 
         
         
