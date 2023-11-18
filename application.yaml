@@ -5,7 +5,6 @@ metadata:
   namespace: argocd
 spec:
   project: default
-
   source:
     repoURL: https://github.com/Cesar02dd/SD.git
     targetRevision: HEAD
@@ -13,12 +12,10 @@ spec:
   destination: 
     server: https://kubernetes.default.svc
     namespace: sge
-
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
       - FailOnSharedResource=true
-      
     automated:
-      SelfHeal: true
+      selfHeal: true
       prune: true
