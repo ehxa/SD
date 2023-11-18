@@ -33,7 +33,6 @@ jobs:
   test_windows:
     name: Test on node ${{ matrix.node_version }} and Windows
     runs-on: windows-latest
-    needs: test_ubuntu
     strategy:
       matrix:
         node_version: [18]  
