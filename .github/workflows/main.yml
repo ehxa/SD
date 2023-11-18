@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
     branches: [main]
@@ -26,13 +25,12 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./Dockerfile
-          file: ${{ secrets.DOCKER_USERNAME }}/clockbox:${{ github.run_number }}
           push: true
           tags: user-dockerhub/imagem:latest
 
-  test_ubuntu:
-    name: test on node ${{ matrix.node_version }} and Ubuntu
-    runs-on: ubuntu-latest
+  test_windows:
+    name: Test on node ${{ matrix.node_version }} and Windows
+    runs-on: windows-latest
     strategy:
       matrix:
         node_version: [18]  
@@ -44,29 +42,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node_version }}
-
       - name: npm install, build and test
         run: |
           npm install
           npm run build --if-present
           npm test
 
-
-
-  test_windows:
-    name: Test on node ${{ matrix.node_version }} and Windows
-    runs-on: windows-latest
-    needs: test_ubuntu
-    strategy:
-      matrix:
-        node_version: [18]  
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node_ve
-
+        
         
