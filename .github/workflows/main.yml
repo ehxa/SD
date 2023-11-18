@@ -24,14 +24,16 @@ jobs:
       - name: Build and push client
         uses: docker/build-push-action@v5
         with:
+          context: ./Dockerfile
           push: true
-          tags: user-dockerhub/client:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:latest
 
       - name: Build and push server
         uses: docker/build-push-action@v5
         with:
+          context: ./Dockerfile
           push: true
-          tags: user-dockerhub/server:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:latest
 
   test_windows:
     name: Test on node ${{ matrix.node_version }} and Windows
