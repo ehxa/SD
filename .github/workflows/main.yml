@@ -50,6 +50,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node_version }}
+
+      - name: search Packege.json
+        run: cd SD/client/packege.json
+
       - name: npm install, build and test
         run: |
           npm install
