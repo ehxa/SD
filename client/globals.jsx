@@ -1,5 +1,5 @@
 const Globals = {
-    token: '8Tpf3b6wKWOvN0YhZQKwVafDmV5aKseElKBZ2aWw',
+    token: '649V8hvqpJBZVAIesJ7oO0CyRUtB52rQVnaT2myQ',
 };
 
 export default Globals;

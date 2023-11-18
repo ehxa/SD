@@ -45,6 +45,11 @@ services:
     ports:
       - "3306:3306"
     container_name: mysql
+    volumes:
+      - data:/var/lib/mysql
+
+volumes:
+  data:
 
 networks:
   app:
