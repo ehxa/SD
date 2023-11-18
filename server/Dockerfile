@@ -12,11 +12,14 @@ RUN apt-get update && apt-get upgrade -y \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install fileinfo 
 
+#COPY php.ini /usr/local/etc/php/php.ini
+
 COPY . .
 
 COPY .env.example .env
 
 RUN sed -i 's/DB_DATABASE=.*/DB_DATABASE=sd/g' .env
+RUN sed -i 's/DB_HOST=.*/DB_HOST=mysql/g' .env
 
 #COPY Dockerfile.mysql /Dockerfile.mysql
 
@@ -26,6 +29,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install 
 
 #ENV COMPOSER_ALLOW_SUPERUSER 1
+RUN php artisan key:generate
 #RUN php artisan migrate --seed
 
 EXPOSE 8000

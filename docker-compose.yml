@@ -4,7 +4,7 @@ services:
   laravel:
     networks:
       - app
-    image: php:8.2-apache
+    image: server:latest
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -13,31 +13,38 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "4000:3000"
+      - "8000:8000"
+    container_name: server
 
   react:
     networks:
       - app
-    image: node:latest
+    image: client:latest
     build:
       context: ./client
       dockerfile: Dockerfile
     stdin_open: true
     tty: true
     ports:
-      - 3000:5173
+      - "5173:5173"
     depends_on:
       - laravel
+    container_name: client
 
   database:
     networks:
       - app
     image: mysql:latest
+    restart: always
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: sd
-      MYSQL_USER: 'root'
-      MYSQL_PASSWORD: 
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=sd
+    ports:
+      - "3306:3306"
+    container_name: mysql
 
 networks:
   app:
