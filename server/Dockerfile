@@ -3,7 +3,7 @@ FROM php:8.2-apache
 WORKDIR /server
 
 RUN apt-get update && apt-get upgrade -y \
-    && apt-get install -y \ 
+    && apt-get install -y --fix-missing\  
         nodejs npm\                      
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-install pdo_mysql \
