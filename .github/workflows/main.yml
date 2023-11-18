@@ -52,7 +52,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
 
       - name: search Packege.json
-        run: cd SD/client/packege.json
+        run: cd ./client/packege.json
 
       - name: npm install, build and test
         run: |
