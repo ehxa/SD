@@ -21,19 +21,18 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push client
-        uses: docker/build-push-action@v5
-        with:
-          context: ../client/Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:latest
-
       - name: Build and push server
         uses: docker/build-push-action@v5
         with:
           context: ../server/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:latest
+      - name: Build and push client
+        uses: docker/build-push-action@v5
+        with:
+          context: ../client/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:latest
 
   test_windows:
     name: Test on node ${{ matrix.node_version }} and Windows
