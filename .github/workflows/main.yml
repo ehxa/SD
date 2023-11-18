@@ -51,8 +51,6 @@ jobs:
           npm run build --if-present
           npm test
 
-
-
   test_windows:
     name: Test on node ${{ matrix.node_version }} and Windows
     runs-on: windows-latest
