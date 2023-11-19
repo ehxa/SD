@@ -1,31 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-deployment
+  name: server-deployment
   namespace: sge
   labels:
-    app: mysql
+    app: server
 spec:
-  replicas: 1
+  replicas: 1 
   selector:
     matchLabels:
-      app: mysql
+      app: server
   template:
     metadata:
       labels:
-        app: mysql
+        app: server
     spec:
       containers:
-      - name: mysql
-        image: mysql:5.7
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: mysql-user
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: mysql-password
+        - name: server
+          image: cesar02dd/server:latest
+          ports:
+            - containerPort: 8000
