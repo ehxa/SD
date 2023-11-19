@@ -12,6 +12,8 @@ spec:
       app: mysql
   template:
     metadata:
+      name: mysql
+      namespace: sge
       labels:
         app: mysql
     spec:
