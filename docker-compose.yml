@@ -19,7 +19,7 @@ services:
   react:
     networks:
       - app
-    image: ehxa/reactvite
+    image: client:latest
     build:
       context: ./client
       dockerfile: Dockerfile
