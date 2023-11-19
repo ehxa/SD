@@ -121,6 +121,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        cd ./server
         composer install
         cp .env.example .env
         php artisan key:generate
