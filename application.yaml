@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sge-grupo2
-  namespace: argocd-test
+  namespace: argocd
 spec:
   project: default
   source:
@@ -11,7 +11,7 @@ spec:
     path: k8s-configuration
   destination: 
     server: https://kubernetes.default.svc
-    namespace: sge-test
+    namespace: sge
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

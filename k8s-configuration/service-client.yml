@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: reactvite
-  namespace: sge-test
+  namespace: sge
   labels:
     app: reactvite
 spec:
