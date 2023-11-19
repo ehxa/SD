@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: msql-deployment
+  namespace: sge
   labels:
     app: mysql
 spec:
@@ -28,16 +29,3 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: mysql-password
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: mysql-service
-spec:
-  selector:
-    app: msql
-  ports:
-    protocol: TCP
-    port: 3306
-    targetPort: 3306
