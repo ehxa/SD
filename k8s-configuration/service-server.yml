@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: server
-  namespace: sge
+  namespace: sge-test
 spec:
   selector:
     app: server
