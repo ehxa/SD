@@ -1,23 +1,21 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reactvite
+  name: client-deployment
   labels:
-    app: reactvite
+    app: client
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reactvite
+      app: client
   template:
     metadata:
       labels:
-        app: reactvite
+        app: client
     spec:
       containers:
-        - name: reactvite
-          image: ehxa/reactvite
+        - name: client
+          image: cesar02dd/client:latest
           ports:
-          - containerPort: 5173
-
+            - containerPort: 5173

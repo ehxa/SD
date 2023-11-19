@@ -3,7 +3,7 @@ version: '3.7'
 services:
   laravel:
     networks:
-      - app
+      - sd
     image: server:latest
     build:
       context: ./server
@@ -18,7 +18,7 @@ services:
 
   react:
     networks:
-      - app
+      - sd
     image: client:latest
     build:
       context: ./client
@@ -33,7 +33,7 @@ services:
 
   database:
     networks:
-      - app
+      - sd
     image: mysql:latest
     restart: always
     build:
@@ -52,7 +52,7 @@ volumes:
   data:
 
 networks:
-  app:
+  sd:
     driver: bridge
 
  

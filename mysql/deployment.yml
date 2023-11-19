@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: msql-deployment
+  name: mysql-deployment
   labels:
     app: mysql
 spec:
@@ -16,15 +16,18 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql:latest
+        image: cesar02dd/mysql:latest
+        ports: 
+          - containerPort: 3306
+        volumeMounts:
+          - name: storage
+            mountPath: /var/lib/mysql
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: mysql-user
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: mysql-password
+          - name: MYSQL_ALLOW_EMPTY_PASSWORD
+            value: "yes"
+          - name: MYSQL_DATABASE
+            value: "sd"
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: mysql-pvc
