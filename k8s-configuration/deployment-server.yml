@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: msql-deployment
+  name: mysql-deployment
   namespace: sge
   labels:
     app: mysql
