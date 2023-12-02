@@ -4,7 +4,7 @@ services:
   laravel:
     networks:
       - sd
-    image: server:latest
+    image: cesar02dd/server:latest
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -19,7 +19,7 @@ services:
   react:
     networks:
       - sd
-    image: client:latest
+    image: cesar02dd/client:latest
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -34,7 +34,7 @@ services:
   database:
     networks:
       - sd
-    image: mysql:latest
+    image: cesar02dd/mysql:latest
     restart: always
     build:
       context: ./mysql
