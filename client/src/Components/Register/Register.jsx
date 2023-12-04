@@ -31,7 +31,7 @@ const Register = () => {
         registerData.event_id = eventId;
         console.log(JSON.stringify(registerData));
 
-        fetch('http://127.0.0.1:8000/api/register', {
+        fetch('http://server:8000/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
