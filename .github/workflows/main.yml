@@ -60,7 +60,9 @@ jobs:
       
         
       - name: Update Deployment Image Tags
-        run: ./update_image_tag.sh ${{ github.sha }}
+        run: |
+            chmod +x ./scripts/update_image_tag.sh
+            ./scripts/update_image_tag.sh ${{ github.sha }}
 
       - name: Deploy Server to Kubernetes
         run: kubectl apply -f deployment-server.yaml

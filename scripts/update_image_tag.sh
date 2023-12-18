@@ -1,8 +1,8 @@
 #!/bin/bash
 
 COMMIT_HASH=$1
-DEPLOYMENT_SERVER_FILE="deployment-server.yaml"
-DEPLOYMENT_CLIENT_FILE="deployment-client.yaml"
+DEPLOYMENT_SERVER_FILE="k8s-configuration/deployment-server.yml"
+DEPLOYMENT_CLIENT_FILE="k8s-configuration/deployment-client.yml"
 
 # Atualiza a imagem do servidor
 sed -i "s|cesar02dd/server:latest|cesar02dd/server:$COMMIT_HASH|g" $DEPLOYMENT_SERVER_FILE
