@@ -57,6 +57,16 @@ jobs:
           file: ./client/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:${{ github.sha }}
+      
+        
+      - name: Update Deployment Image Tags
+        run: ./update_image_tag.sh ${{ github.sha }}
+
+      - name: Deploy Server to Kubernetes
+        run: kubectl apply -f deployment-server.yaml
+
+      - name: Deploy Client to Kubernetes
+        run: kubectl apply -f deployment-client.yaml
 
   test_ubuntu:
     runs-on: ubuntu-latest
