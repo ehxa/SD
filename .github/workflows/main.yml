@@ -58,14 +58,15 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:${{ github.sha }}
 
-  test_ubuntu:
-    runs-on: ubuntu-latest
+   test_ubuntu:
+    name:
+    runs-on: Ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node_version}}
+        uses: actions/setup-node@v1
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node_version }}
 
       - name: Build Backend
         run: |
@@ -80,16 +81,20 @@ jobs:
           npm run build --if-present
 
   test_windows:
-    name: Test on Windows
+    name: Test on node ${{ matrix.node_version }} and Windows
     runs-on: windows-latest
     needs: test_ubuntu
+    strategy:
+      matrix:
+        node_version: [18]  
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v1
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node_version }}
 
       - name: Build Backend
         run: |
