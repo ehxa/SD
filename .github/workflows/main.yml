@@ -1,4 +1,5 @@
 name: CI
+
 on:
   workflow_dispatch:
     inputs:
@@ -47,24 +48,24 @@ jobs:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:${{ github.sha }}
+
       - name: Build and push client
         uses: docker/build-push-action@v5
         with:
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:${{ github.sha }}
 
   test_ubuntu:
-    name:
-    runs-on: Ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node_version}}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: '14'
 
       - name: Build Backend
         run: |
@@ -79,20 +80,16 @@ jobs:
           npm run build --if-present
 
   test_windows:
-    name: Test on node ${{ matrix.node_version }} and Windows
+    name: Test on Windows
     runs-on: windows-latest
     needs: test_ubuntu
-    strategy:
-      matrix:
-        node_version: [18]  
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: '14'
 
       - name: Build Backend
         run: |
